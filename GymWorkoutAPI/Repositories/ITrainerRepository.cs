@@ -3,8 +3,8 @@
 namespace GymWorkoutAPI.Repositories;
 public interface ITrainerRepository
 {
-    Trainer GetById(int id);
-    IEnumerable<Trainer> GetAll();
-    void Add(Trainer trainer);
+    TrainerEntity GetById(int id);
+    IEnumerable<TrainerEntity> GetAll();
+    void Add(TrainerEntity trainer);
     void Remove(int id);
 }

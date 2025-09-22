@@ -5,6 +5,73 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/GymSession": {
+      "get": {
+        "tags": [
+          "GymSession"
+        ],
+        "operationId": "Get all sessions",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "GymSession"
+        ],
+        "operationId": "Add a new Session",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Session"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Session"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Session"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/GymSession/{id}": {
+      "delete": {
+        "tags": [
+          "GymSession"
+        ],
+        "operationId": "Remove a Session",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/GymWorkout": {
       "get": {
         "tags": [
@@ -184,6 +251,28 @@
   },
   "components": {
     "schemas": {
+      "Session": {
+        "type": "object",
+        "properties": {
+          "sessionID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sessionDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "overallDuration": {
+            "type": "number",
+            "format": "float"
+          },
+          "trainerID": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "Trainer": {
         "type": "object",
         "properties": {

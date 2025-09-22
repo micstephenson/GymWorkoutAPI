@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kxm9K6mw9jI=",
+  "dgSpecHash": "FmeXCIQdjJ8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Work\\GymWorkoutAPI\\GymWorkoutAPI\\GymWorkoutAPI.csproj",
+  "projectFilePath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\GymWorkoutAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Michaylias$la\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Michaylias$la\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

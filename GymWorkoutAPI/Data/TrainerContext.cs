@@ -2,7 +2,7 @@
 
 namespace GymWorkoutAPI.Data
 {
-    public class Trainer
+    public class TrainerEntity
     {
         public int TrainerID { get; set; }
         public string FirstName { get; set; }
@@ -18,6 +18,6 @@ namespace GymWorkoutAPI.Data
         {
         }
 
-        public DbSet<Trainer> Trainers { get; set; }
+        public DbSet<TrainerEntity> Trainers { get; set; }
     }
 }

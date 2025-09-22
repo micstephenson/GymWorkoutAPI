@@ -1,6 +1,4 @@
 ﻿using GymWorkoutAPI.Data;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace GymWorkoutAPI.Repositories
 {

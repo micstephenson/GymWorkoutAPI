@@ -1,25 +1,17 @@
-﻿using GymWorkoutAPI.Data;
-using GymWorkoutAPI.Exceptions;
-using GymWorkoutAPI.Repositories;
-using Microsoft.AspNetCore.Http;
+﻿using GymWorkoutAPI.DataTransferObjects;
+using GymWorkoutAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GymWorkoutAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PersonalTrainerController : ControllerBase
+    public class PersonalTrainerController(ITrainerService trainerService) : ControllerBase
     {
-        private readonly ITrainerRepository trainerRepository;
-        public PersonalTrainerController(ITrainerRepository trainerRepository)
-        {
-            this.trainerRepository = trainerRepository;
-        }
-
         [HttpGet(Name = "Get all trainers")]
         public IActionResult GetAllTrainers()
         {
-            var trainers = trainerRepository.GetAll();
+            var trainers = TrainerService.GetAllTrainers();
 
             if (trainers == null || !trainers.Any())
             {
@@ -29,14 +21,16 @@ namespace GymWorkoutAPI.Controllers
         }
 
         [HttpPost(Name = "Add a new Trainer")]
-        public IActionResult AddTrainer([FromBody] Trainer trainer)
+        public IActionResult AddTrainer([FromBody] TrainerDTO trainerDTO)
         {
-            if (trainer == null)
+            if (trainerDTO == null)
             {
                 return BadRequest("Trainer data is null.");
             }
-            trainerRepository.Add(trainer);
-            return CreatedAtAction(nameof(AddTrainer), new { id = trainer.TrainerID }, trainer);
+
+            trainerService.CreateTrainer(trainerDTO);
+
+            return Created();
         }
 
         [HttpDelete("{id}", Name = "Remove a Trainer")]

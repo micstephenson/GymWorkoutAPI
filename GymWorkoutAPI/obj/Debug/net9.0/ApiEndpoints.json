@@ -1,5 +1,50 @@
 [
   {
+    "ContainingType": "GymWorkoutAPI.Controllers.GymSessionController",
+    "Method": "GetAllSessions",
+    "RelativePath": "api/GymSession",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "EndpointName": "Get all sessions"
+  },
+  {
+    "ContainingType": "GymWorkoutAPI.Controllers.GymSessionController",
+    "Method": "AddSession",
+    "RelativePath": "api/GymSession",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "session",
+        "Type": "GymWorkoutAPI.Data.Session",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "Add a new Session"
+  },
+  {
+    "ContainingType": "GymWorkoutAPI.Controllers.GymSessionController",
+    "Method": "RemoveSession",
+    "RelativePath": "api/GymSession/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "Remove a Session"
+  },
+  {
     "ContainingType": "GymWorkoutAPI.Controllers.GymWorkoutController",
     "Method": "GetAllWorkouts",
     "RelativePath": "api/GymWorkout",

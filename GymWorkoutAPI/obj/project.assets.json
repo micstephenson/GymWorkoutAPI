@@ -3578,11 +3578,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Work\\GymWorkoutAPI\\GymWorkoutAPI\\GymWorkoutAPI.csproj",
+      "projectUniqueName": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\GymWorkoutAPI.csproj",
       "projectName": "GymWorkoutAPI",
-      "projectPath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Work\\GymWorkoutAPI\\GymWorkoutAPI\\GymWorkoutAPI.csproj",
+      "projectPath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\GymWorkoutAPI.csproj",
       "packagesPath": "C:\\Users\\Michaylias$la\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Work\\GymWorkoutAPI\\GymWorkoutAPI\\obj\\",
+      "outputPath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

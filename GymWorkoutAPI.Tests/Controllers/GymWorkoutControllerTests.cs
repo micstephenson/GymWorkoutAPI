@@ -8,9 +8,8 @@ namespace GymWorkoutAPI.Tests.Controllers;
 
 public class GymWorkoutControllerTests
 {
-    // Gets all workouts (positive response)
     [Fact]
-    public void Test1()
+    public void GetAllWorkouts_PositiveResponse()
     {
         // Arrange
         var mockRepo = Substitute.For<IWorkoutRepository>();
@@ -25,9 +24,8 @@ public class GymWorkoutControllerTests
         var workouts = Assert.IsAssignableFrom<IEnumerable<Workout>>(okResult.Value);
     }
 
-    // Gets all workouts (negative response)
     [Fact]
-    public void Test2()
+    public void GetAllWorkouts_NegativeResponse()
     {
         // Arrange
         var mockRepo = Substitute.For<IWorkoutRepository>();
@@ -43,9 +41,8 @@ public class GymWorkoutControllerTests
     }
 
 
-    // Add a new workout (positive response)
     [Fact]
-    public void Test3()
+    public void AddNewWorkout_PositiveResponse()
     {
         // Arrange
         var mockRepo = Substitute.For<IWorkoutRepository>();
@@ -60,9 +57,8 @@ public class GymWorkoutControllerTests
         Assert.Equal(newWorkout, createdAtActionResult.Value);
     }
 
-    // Add a new workout (negative response - null workout)
     [Fact]
-    public void Test4()
+    public void AddNewWorkout_NegativeResponse_NUllWorkout()
     {
         // Arrange
         var mockRepo = Substitute.For<IWorkoutRepository>();
@@ -75,9 +71,8 @@ public class GymWorkoutControllerTests
         Assert.IsType<BadRequestObjectResult>(result);
     }
 
-    //Update a workout (positive response)
     [Fact]
-    public void Test5()
+    public void UpdateWorkout_PositiveResponse()
     {
         // Arrange
         var mockRepo = Substitute.For<IWorkoutRepository>();
@@ -95,10 +90,8 @@ public class GymWorkoutControllerTests
     }
 
 
-
-    //Update a workout (negative response - invalid workout data)
     [Fact]
-    public void Test6()
+    public void UpdateWorkout_NegativeResponse_InvalidWorkoutData()
     {
         // Arrange
         var mockRepo = Substitute.For<IWorkoutRepository>();
@@ -113,10 +106,8 @@ public class GymWorkoutControllerTests
     }
 
 
-
-    //Delete a workout (positive response)
     [Fact]
-    public void Test7()
+    public void DeleteWorkout_PositiveResponse()
     {
         // Arrange
         var mockRepo = Substitute.For<IWorkoutRepository>();
@@ -132,14 +123,12 @@ public class GymWorkoutControllerTests
     }
 
 
-
-    //Delete a workout (negative response - workout not found)
     [Fact]
-    public void Test8()
+    public void DeleteWorkout_PositiveResponse_WorkoutNotFound()
     {
         // Arrange
         var mockRepo = Substitute.For<IWorkoutRepository>();
-        mockRepo.GetById(1).Returns((Workout)null); // Simulate workout not found
+        mockRepo.GetById(1).Returns((Workout)null);
         var controller = new GymWorkoutController(mockRepo);
 
         // Act
@@ -148,5 +137,4 @@ public class GymWorkoutControllerTests
         // Assert
         var notFoundResult = Assert.IsType<NotFoundObjectResult>(result);
     }
-
 }

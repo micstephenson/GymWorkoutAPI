@@ -9628,11 +9628,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Work\\GymWorkoutAPI\\GymWorkoutAPI.Tests\\GymWorkoutAPI.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI.Tests\\GymWorkoutAPI.Tests.csproj",
       "projectName": "GymWorkoutAPI.Tests",
-      "projectPath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Work\\GymWorkoutAPI\\GymWorkoutAPI.Tests\\GymWorkoutAPI.Tests.csproj",
+      "projectPath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI.Tests\\GymWorkoutAPI.Tests.csproj",
       "packagesPath": "C:\\Users\\Michaylias$la\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Work\\GymWorkoutAPI\\GymWorkoutAPI.Tests\\obj\\",
+      "outputPath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -9653,8 +9653,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Work\\GymWorkoutAPI\\GymWorkoutAPI\\GymWorkoutAPI.csproj": {
-              "projectPath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Work\\GymWorkoutAPI\\GymWorkoutAPI\\GymWorkoutAPI.csproj"
+            "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\GymWorkoutAPI.csproj": {
+              "projectPath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\GymWorkoutAPI.csproj"
             }
           }
         }

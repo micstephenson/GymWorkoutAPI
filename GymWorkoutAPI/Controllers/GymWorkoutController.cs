@@ -1,7 +1,6 @@
 ﻿using GymWorkoutAPI.Data;
 using GymWorkoutAPI.Exceptions;
 using GymWorkoutAPI.Repositories;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GymWorkoutAPI.Controllers
