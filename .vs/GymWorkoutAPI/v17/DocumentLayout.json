@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B3BA5158-2BE9-4FD2-84B3-23B1227D8B5C}|GymWorkoutAPI\\GymWorkoutAPI.csproj|c:\\users\\michaylia.stephenson\\onedrive - zenith opco limited\\documents\\progamming c#\\home\\github\\gymworkoutapi\\gymworkoutapi\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B3BA5158-2BE9-4FD2-84B3-23B1227D8B5C}|GymWorkoutAPI\\GymWorkoutAPI.csproj|solutionrelative:gymworkoutapi\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{416D8E4F-747D-4040-9452-8FE0347A944D}|GymWorkoutAPI.Tests\\GymWorkoutAPI.Tests.csproj|c:\\users\\michaylia.stephenson\\onedrive - zenith opco limited\\documents\\progamming c#\\home\\github\\gymworkoutapi\\gymworkoutapi.tests\\controllers\\personaltrainercontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{416D8E4F-747D-4040-9452-8FE0347A944D}|GymWorkoutAPI.Tests\\GymWorkoutAPI.Tests.csproj|solutionrelative:gymworkoutapi.tests\\controllers\\personaltrainercontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -51,10 +55,6 @@
       "RelativeMoniker": "D:0:0:{B3BA5158-2BE9-4FD2-84B3-23B1227D8B5C}|GymWorkoutAPI\\GymWorkoutAPI.csproj|solutionrelative:gymworkoutapi\\controllers\\gymsessioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B3BA5158-2BE9-4FD2-84B3-23B1227D8B5C}|GymWorkoutAPI\\GymWorkoutAPI.csproj|c:\\users\\michaylia.stephenson\\onedrive - zenith opco limited\\documents\\progamming c#\\home\\github\\gymworkoutapi\\gymworkoutapi\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{B3BA5158-2BE9-4FD2-84B3-23B1227D8B5C}|GymWorkoutAPI\\GymWorkoutAPI.csproj|solutionrelative:gymworkoutapi\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{416D8E4F-747D-4040-9452-8FE0347A944D}|GymWorkoutAPI.Tests\\GymWorkoutAPI.Tests.csproj|c:\\users\\michaylia.stephenson\\onedrive - zenith opco limited\\documents\\progamming c#\\home\\github\\gymworkoutapi\\gymworkoutapi.tests\\controllers\\gymsessioncontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{416D8E4F-747D-4040-9452-8FE0347A944D}|GymWorkoutAPI.Tests\\GymWorkoutAPI.Tests.csproj|solutionrelative:gymworkoutapi.tests\\controllers\\gymsessioncontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -90,7 +90,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 210,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -98,15 +98,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TrainerRepository.cs",
-              "DocumentMoniker": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\Repositories\\TrainerRepository.cs",
-              "RelativeDocumentMoniker": "GymWorkoutAPI\\Repositories\\TrainerRepository.cs",
-              "ToolTip": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\Repositories\\TrainerRepository.cs",
-              "RelativeToolTip": "GymWorkoutAPI\\Repositories\\TrainerRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-22T08:17:33.282Z"
+              "DocumentIndex": 0,
+              "Title": "ReadMe.txt",
+              "DocumentMoniker": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\ReadMe.txt",
+              "RelativeDocumentMoniker": "GymWorkoutAPI\\ReadMe.txt",
+              "ToolTip": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\ReadMe.txt",
+              "RelativeToolTip": "GymWorkoutAPI\\ReadMe.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-09-19T08:51:55.131Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -122,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "GlobalExceptionHandler.cs",
               "DocumentMoniker": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\Exceptions\\GlobalExceptionHandler.cs",
               "RelativeDocumentMoniker": "GymWorkoutAPI\\Exceptions\\GlobalExceptionHandler.cs",
@@ -134,7 +135,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "GymWorkoutController.cs",
               "DocumentMoniker": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\Controllers\\GymWorkoutController.cs",
               "RelativeDocumentMoniker": "GymWorkoutAPI\\Controllers\\GymWorkoutController.cs",
@@ -158,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PersonalTrainerControllerTests.cs",
               "DocumentMoniker": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI.Tests\\Controllers\\PersonalTrainerControllerTests.cs",
               "RelativeDocumentMoniker": "GymWorkoutAPI.Tests\\Controllers\\PersonalTrainerControllerTests.cs",
@@ -171,7 +172,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
+              "Title": "TrainerRepository.cs",
+              "DocumentMoniker": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\Repositories\\TrainerRepository.cs",
+              "RelativeDocumentMoniker": "GymWorkoutAPI\\Repositories\\TrainerRepository.cs",
+              "ToolTip": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\Repositories\\TrainerRepository.cs",
+              "RelativeToolTip": "GymWorkoutAPI\\Repositories\\TrainerRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T08:17:33.282Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "WorkoutRepository.cs",
               "DocumentMoniker": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\Repositories\\WorkoutRepository.cs",
               "RelativeDocumentMoniker": "GymWorkoutAPI\\Repositories\\WorkoutRepository.cs",
@@ -183,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ITrainerService.cs",
               "DocumentMoniker": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\Services\\ITrainerService.cs",
               "RelativeDocumentMoniker": "GymWorkoutAPI\\Services\\ITrainerService.cs",
@@ -195,7 +208,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "PersonalTrainerController.cs",
               "DocumentMoniker": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\Controllers\\PersonalTrainerController.cs",
               "RelativeDocumentMoniker": "GymWorkoutAPI\\Controllers\\PersonalTrainerController.cs",
@@ -207,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "TrainerService.cs",
               "DocumentMoniker": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\Services\\TrainerService.cs",
               "RelativeDocumentMoniker": "GymWorkoutAPI\\Services\\TrainerService.cs",
@@ -243,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "TrainerContext.cs",
               "DocumentMoniker": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\Data\\TrainerContext.cs",
               "RelativeDocumentMoniker": "GymWorkoutAPI\\Data\\TrainerContext.cs",
@@ -255,19 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ReadMe.txt",
-              "DocumentMoniker": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\ReadMe.txt",
-              "RelativeDocumentMoniker": "GymWorkoutAPI\\ReadMe.txt",
-              "ToolTip": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\ReadMe.txt",
-              "RelativeToolTip": "GymWorkoutAPI\\ReadMe.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-09-19T08:51:55.131Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "SessionContext.cs",
               "DocumentMoniker": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\Data\\SessionContext.cs",
               "RelativeDocumentMoniker": "GymWorkoutAPI\\Data\\SessionContext.cs",
@@ -279,7 +280,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "GymSessionController.cs",
               "DocumentMoniker": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\Controllers\\GymSessionController.cs",
               "RelativeDocumentMoniker": "GymWorkoutAPI\\Controllers\\GymSessionController.cs",
@@ -303,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ISessionRepository.cs",
               "DocumentMoniker": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI\\Repositories\\ISessionRepository.cs",
               "RelativeDocumentMoniker": "GymWorkoutAPI\\Repositories\\ISessionRepository.cs",
