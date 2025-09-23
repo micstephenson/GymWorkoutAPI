@@ -38,3 +38,6 @@ To run the API, ensure you have .NET 8.0 SDK installed and execute the following
   - `GET /api/trainers`: Retrieve all trainers.
   - `DELETE /api/trainers/{id}`: Delete a specific trainer by ID.
 
+## Testing
+Unit tests are located in GymWorkoutAPI.Tests/Controllers
+Right-click on the test you would like to run and then click 'run tests'.
