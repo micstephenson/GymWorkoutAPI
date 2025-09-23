@@ -26,7 +26,19 @@ namespace GymWorkoutAPI.Controllers
             return Ok(sessions);
         }
 
-        [HttpPost(Name = "Add a new Session")]
+        [HttpGet(Name = "Get session workouts")]
+        public IActionResult GetAllSessions()
+        {
+            var sessions = sessionRepository.GetAll();
+
+            if (sessions == null || !sessions.Any())
+            {
+                return NotFound("No Sessions found");
+            }
+            return Ok(sessions);
+        }
+
+        [HttpPost(Name = "Add a new Session Workouts")]
         public IActionResult AddSession([FromBody] Session session)
         {
             if (session == null)

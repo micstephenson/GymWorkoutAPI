@@ -21,6 +21,7 @@ namespace GymWorkoutAPI.Repositories
             return sessionContext.Sessions.FirstOrDefault(p => p.SessionID == id);
         }
 
+
         public void Remove(int id)
         {
             var session = sessionContext.Sessions.FirstOrDefault(p => p.SessionID == id);
