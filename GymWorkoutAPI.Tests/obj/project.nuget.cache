@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "YzgU1ApY0bY=",
+  "dgSpecHash": "ZBSatI8K3ak=",
   "success": true,
   "projectFilePath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI.Tests\\GymWorkoutAPI.Tests.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Michaylias$la\\.nuget\\packages\\antlr\\3.4.1.9004\\antlr.3.4.1.9004.nupkg.sha512",
     "C:\\Users\\Michaylias$la\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Michaylias$la\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\Michaylias$la\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
@@ -175,6 +176,7 @@
     "C:\\Users\\Michaylias$la\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\Michaylias$la\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Michaylias$la\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Michaylias$la\\.nuget\\packages\\webgrease\\1.6.0\\webgrease.1.6.0.nupkg.sha512",
     "C:\\Users\\Michaylias$la\\.nuget\\packages\\xunit\\2.5.3\\xunit.2.5.3.nupkg.sha512",
     "C:\\Users\\Michaylias$la\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
     "C:\\Users\\Michaylias$la\\.nuget\\packages\\xunit.analyzers\\1.4.0\\xunit.analyzers.1.4.0.nupkg.sha512",
@@ -184,5 +186,30 @@
     "C:\\Users\\Michaylias$la\\.nuget\\packages\\xunit.extensibility.execution\\2.5.3\\xunit.extensibility.execution.2.5.3.nupkg.sha512",
     "C:\\Users\\Michaylias$la\\.nuget\\packages\\xunit.runner.visualstudio\\2.5.3\\xunit.runner.visualstudio.2.5.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'Antlr 3.4.1.9004' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI.Tests\\GymWorkoutAPI.Tests.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI.Tests\\GymWorkoutAPI.Tests.csproj",
+      "libraryId": "Antlr",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'WebGrease 1.6.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI.Tests\\GymWorkoutAPI.Tests.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\michaylia.stephenson\\OneDrive - Zenith OpCo Limited\\Documents\\Progamming C#\\Home\\GitHub\\GymWorkoutAPI\\GymWorkoutAPI.Tests\\GymWorkoutAPI.Tests.csproj",
+      "libraryId": "WebGrease",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
 }

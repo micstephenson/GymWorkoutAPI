@@ -1,6 +1,7 @@
 ﻿using GymWorkoutAPI.Controllers;
 using GymWorkoutAPI.Data;
-using GymWorkoutAPI.Repositories;
+using GymWorkoutAPI.DataTransferObjects;
+using GymWorkoutAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using NSubstitute;
 
@@ -11,25 +12,25 @@ public class GymSessionControllerTests
     public void GetAllSessions_PositiveResponse()
     {
         // Arrange
-        var mockRepo = Substitute.For<ITrainerRepository>();
-        mockRepo.GetAll().Returns(new List<TrainerEntity> { new TrainerEntity() });
-        var controller = new PersonalTrainerController(mockRepo);
+        var mockService = Substitute.For<ITrainerService>();
+        mockService.GetAllTrainers().Returns(new List<TrainerDTO> { new TrainerDTO() });
+        var controller = new PersonalTrainerController(mockService);
 
         // Act
         var result = controller.GetAllTrainers();
 
         // Assert
         var okResult = Assert.IsType<OkObjectResult>(result);
-        var trainers = Assert.IsAssignableFrom<IEnumerable<TrainerEntity>>(okResult.Value);
+        var trainers = Assert.IsAssignableFrom<IEnumerable<TrainerDTO>>(okResult.Value);
     }
 
     [Fact]
     public void GetAllSessions_NegativeResponse()
-    { 
+    {
         // Arrange
-        var mockRepo = Substitute.For<ITrainerRepository>();
-        mockRepo.GetAll().Returns((IEnumerable<TrainerEntity>)null);
-        var controller = new PersonalTrainerController(mockRepo);
+        var mockService = Substitute.For<ITrainerService>();
+        mockService.GetAllTrainers().Returns((IEnumerable<TrainerDTO>)null);
+        var controller = new PersonalTrainerController(mockService);
 
         // Act
         var result = controller.GetAllTrainers();
@@ -38,5 +39,4 @@ public class GymSessionControllerTests
         var notFoundResult = Assert.IsType<NotFoundObjectResult>(result);
         Assert.Equal("No Personal Trainers found", notFoundResult.Value);
     }
-
 }

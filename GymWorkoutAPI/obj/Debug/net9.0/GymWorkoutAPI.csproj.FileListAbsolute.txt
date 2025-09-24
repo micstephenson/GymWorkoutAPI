@@ -189,3 +189,6 @@ C:\Users\michaylia.stephenson\OneDrive - Zenith OpCo Limited\Documents\Progammin
 C:\Users\michaylia.stephenson\OneDrive - Zenith OpCo Limited\Documents\Progamming C#\Home\GitHub\GymWorkoutAPI\GymWorkoutAPI\obj\Debug\net9.0\GymWorkoutAPI.pdb
 C:\Users\michaylia.stephenson\OneDrive - Zenith OpCo Limited\Documents\Progamming C#\Home\GitHub\GymWorkoutAPI\GymWorkoutAPI\obj\Debug\net9.0\GymWorkoutAPI.genruntimeconfig.cache
 C:\Users\michaylia.stephenson\OneDrive - Zenith OpCo Limited\Documents\Progamming C#\Home\GitHub\GymWorkoutAPI\GymWorkoutAPI\obj\Debug\net9.0\ref\GymWorkoutAPI.dll
+C:\Users\michaylia.stephenson\OneDrive - Zenith OpCo Limited\Documents\Progamming C#\Home\GitHub\GymWorkoutAPI\GymWorkoutAPI\bin\Debug\net9.0\Antlr3.Runtime.dll
+C:\Users\michaylia.stephenson\OneDrive - Zenith OpCo Limited\Documents\Progamming C#\Home\GitHub\GymWorkoutAPI\GymWorkoutAPI\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\michaylia.stephenson\OneDrive - Zenith OpCo Limited\Documents\Progamming C#\Home\GitHub\GymWorkoutAPI\GymWorkoutAPI\bin\Debug\net9.0\WebGrease.dll

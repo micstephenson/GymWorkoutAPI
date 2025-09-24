@@ -24,6 +24,7 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Pkgxunit_analyzers Condition=" '$(Pkgxunit_analyzers)' == '' ">C:\Users\Michaylias$la\.nuget\packages\xunit.analyzers\1.4.0</Pkgxunit_analyzers>
+    <PkgWebGrease Condition=" '$(PkgWebGrease)' == '' ">C:\Users\Michaylias$la\.nuget\packages\webgrease\1.6.0</PkgWebGrease>
     <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\Michaylias$la\.nuget\packages\entityframework\6.5.1</PkgEntityFramework>
   </PropertyGroup>
 </Project>

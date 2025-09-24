@@ -26,17 +26,73 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Session"
+                "$ref": "#/components/schemas/GymSession"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Session"
+                "$ref": "#/components/schemas/GymSession"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Session"
+                "$ref": "#/components/schemas/GymSession"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/GymSession/{sessionId}/workouts": {
+      "get": {
+        "tags": [
+          "GymSession"
+        ],
+        "operationId": "Get Session Workout Details",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/GymSession/add-workouts": {
+      "post": {
+        "tags": [
+          "GymSession"
+        ],
+        "operationId": "Add Workouts to Session",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SessionWorkout"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SessionWorkout"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SessionWorkout"
               }
             }
           }
@@ -93,17 +149,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Workout"
+                "$ref": "#/components/schemas/Workouts"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Workout"
+                "$ref": "#/components/schemas/Workouts"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Workout"
+                "$ref": "#/components/schemas/Workouts"
               }
             }
           }
@@ -135,17 +191,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Workout"
+                "$ref": "#/components/schemas/Workouts"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Workout"
+                "$ref": "#/components/schemas/Workouts"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Workout"
+                "$ref": "#/components/schemas/Workouts"
               }
             }
           }
@@ -202,17 +258,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Trainer"
+                "$ref": "#/components/schemas/TrainerDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Trainer"
+                "$ref": "#/components/schemas/TrainerDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Trainer"
+                "$ref": "#/components/schemas/TrainerDTO"
               }
             }
           }
@@ -247,11 +303,98 @@
           }
         }
       }
+    },
+    "/api/UserDetails": {
+      "get": {
+        "tags": [
+          "UserDetails"
+        ],
+        "operationId": "Get All User Details",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "UserDetails"
+        ],
+        "operationId": "Add User Details",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDetailsDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDetailsDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDetailsDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/UserDetails/{userName}": {
+      "delete": {
+        "tags": [
+          "UserDetails"
+        ],
+        "operationId": "Remove User Details",
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "UserDetails"
+        ],
+        "operationId": "Get User Details",
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
-      "Session": {
+      "GymSession": {
         "type": "object",
         "properties": {
           "sessionID": {
@@ -260,7 +403,8 @@
           },
           "sessionDate": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "overallDuration": {
             "type": "number",
@@ -273,13 +417,27 @@
         },
         "additionalProperties": false
       },
-      "Trainer": {
+      "SessionWorkout": {
         "type": "object",
         "properties": {
-          "trainerID": {
+          "sessionID": {
             "type": "integer",
             "format": "int32"
           },
+          "workoutID": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TrainerDTO": {
+        "type": "object",
+        "properties": {
           "firstName": {
             "type": "string",
             "nullable": true
@@ -295,7 +453,25 @@
         },
         "additionalProperties": false
       },
-      "Workout": {
+      "UserDetailsDTO": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Workouts": {
         "type": "object",
         "properties": {
           "workoutID": {
@@ -318,7 +494,7 @@
           },
           "duration": {
             "type": "number",
-            "format": "double",
+            "format": "float",
             "nullable": true
           },
           "difficulty": {

@@ -1,5 +1,6 @@
 ﻿using GymWorkoutAPI.Controllers;
 using GymWorkoutAPI.Data;
+using GymWorkoutAPI.DataTransferObjects;
 using GymWorkoutAPI.Repositories;
 using GymWorkoutAPI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +15,7 @@ public class PersonalTrainerControllerTests
     {
         // Arrange
         var mockRepo = Substitute.For<ITrainerService>();
-        mockRepo.GetAll().Returns(new List<TrainerEntity> { new TrainerEntity() });
+        mockRepo.GetAllTrainers().Returns(new List<TrainerDTO> { new TrainerDTO() });
         var controller = new PersonalTrainerController(mockRepo);
 
         // Act
@@ -22,15 +23,15 @@ public class PersonalTrainerControllerTests
 
         // Assert
         var okResult = Assert.IsType<OkObjectResult>(result);
-        var trainers = Assert.IsAssignableFrom<IEnumerable<TrainerEntity>>(okResult.Value);
+        var trainers = Assert.IsAssignableFrom<IEnumerable<TrainerDTO>>(okResult.Value);
     }
 
     [Fact]
     public void GetAllTrainers_NegativeResponse() 
     {
         // Arrange
-        var mockRepo = Substitute.For<ITrainerRepository>();
-        mockRepo.GetAll().Returns((IEnumerable<TrainerEntity>)null);
+        var mockRepo = Substitute.For<ITrainerService>();
+        mockRepo.GetAllTrainers().Returns((IEnumerable<TrainerDTO>)null);
         var controller = new PersonalTrainerController(mockRepo);
 
         // Act
@@ -46,7 +47,7 @@ public class PersonalTrainerControllerTests
         // Arrange
         var mockRepo = Substitute.For<ITrainerService>();
         var controller = new PersonalTrainerController(mockRepo);
-        var newTrainer = new TrainerEntity {FirstName = "Test", LastName = "Trainer" };
+        var newTrainer = new TrainerDTO{FirstName = "Test", LastName = "Trainer", Email = "testtrainer@gymplace.com"};
         // Act
         var result = controller.AddTrainer(newTrainer);
         // Assert
@@ -59,7 +60,7 @@ public class PersonalTrainerControllerTests
         // Arrange
         var mockRepo = Substitute.For<ITrainerService>();
         var controller = new PersonalTrainerController(mockRepo);
-        TrainerEntity newTrainer = null;
+        TrainerDTO newTrainer = null;
 
         // Act
         var result = controller.AddTrainer(newTrainer);
@@ -74,13 +75,13 @@ public class PersonalTrainerControllerTests
         // Arrange
         var mockRepo = Substitute.For<ITrainerService>();
         var controller = new PersonalTrainerController(mockRepo);
-        var existingTrainer = new TrainerEntity { TrainerID = 1, FirstName = "Test", LastName = "Trainer" };
-        mockRepo.GetById(1).Returns(existingTrainer);
+        var existingTrainer = new TrainerDTO {FirstName = "Test", LastName = "Trainer" };
+        mockRepo.GetTrainerById(1).Returns(existingTrainer);
         // Act
         var result = controller.RemoveTrainer(1);
         // Assert
         Assert.IsType<NoContentResult>(result);
-        mockRepo.Received(1).Remove(1);
+        mockRepo.Received(1).RemoveTrainer(1);
     }
 
     public void RemoveTrainer_NegativeResponse()
@@ -88,7 +89,7 @@ public class PersonalTrainerControllerTests
         // Arrange
         var mockRepo = Substitute.For<ITrainerService>();
         var controller = new PersonalTrainerController(mockRepo);
-        mockRepo.GetById(1).Returns((TrainerEntity)null);
+        mockRepo.GetTrainerById(1).Returns((TrainerDTO)null);
         // Act
         var result = controller.RemoveTrainer(1);
         // Assert

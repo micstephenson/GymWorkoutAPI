@@ -13,7 +13,7 @@ public class GymWorkoutControllerTests
     {
         // Arrange
         var mockRepo = Substitute.For<IWorkoutRepository>();
-        mockRepo.GetAll().Returns(new List<Workout> { new Workout() });
+        mockRepo.GetAll().Returns(new List<Workouts> { new Workouts() });
         var controller = new GymWorkoutController(mockRepo);
 
         // Act
@@ -21,7 +21,7 @@ public class GymWorkoutControllerTests
 
         // Assert
         var okResult = Assert.IsType<OkObjectResult>(result);
-        var workouts = Assert.IsAssignableFrom<IEnumerable<Workout>>(okResult.Value);
+        var workouts = Assert.IsAssignableFrom<IEnumerable<Workouts>>(okResult.Value);
     }
 
     [Fact]
@@ -29,7 +29,7 @@ public class GymWorkoutControllerTests
     {
         // Arrange
         var mockRepo = Substitute.For<IWorkoutRepository>();
-        mockRepo.GetAll().Returns((IEnumerable<Workout>)null);
+        mockRepo.GetAll().Returns((IEnumerable<Workouts>)null);
         var controller = new GymWorkoutController(mockRepo);
 
         // Act
@@ -47,7 +47,7 @@ public class GymWorkoutControllerTests
         // Arrange
         var mockRepo = Substitute.For<IWorkoutRepository>();
         var controller = new GymWorkoutController(mockRepo);
-        var newWorkout = new Workout { WorkoutID = 1, WorkoutName = "Test Workout" };
+        var newWorkout = new Workouts { WorkoutID = 1, WorkoutName = "Test Workout" };
 
         // Act
         var result = controller.AddWorkout(newWorkout);
@@ -76,17 +76,17 @@ public class GymWorkoutControllerTests
     {
         // Arrange
         var mockRepo = Substitute.For<IWorkoutRepository>();
-        var existingWorkout = new Workout { WorkoutID = 1, WorkoutName = "Existing Workout" };
+        var existingWorkout = new Workouts { WorkoutID = 1, WorkoutName = "Existing Workout" };
         mockRepo.GetById(1).Returns(existingWorkout);
         var controller = new GymWorkoutController(mockRepo);
-        var updatedWorkout = new Workout { WorkoutID = 1, WorkoutName = "Updated Workout" };
+        var updatedWorkout = new Workouts { WorkoutID = 1, WorkoutName = "Updated Workout" };
 
         // Act
         var result = controller.UpdateWorkout(1, updatedWorkout);
 
         // Assert
         Assert.IsType<NoContentResult>(result);
-        mockRepo.Received(1).Update(Arg.Is<Workout>(w => w.WorkoutName == "Updated Workout"));
+        mockRepo.Received(1).Update(Arg.Is<Workouts>(w => w.WorkoutName == "Updated Workout"));
     }
 
 
@@ -96,7 +96,7 @@ public class GymWorkoutControllerTests
         // Arrange
         var mockRepo = Substitute.For<IWorkoutRepository>();
         var controller = new GymWorkoutController(mockRepo);
-        var updatedWorkout = new Workout { WorkoutID = 2, WorkoutName = "Updated Workout" };
+        var updatedWorkout = new Workouts { WorkoutID = 2, WorkoutName = "Updated Workout" };
 
         // Act
         var result = controller.UpdateWorkout(1, updatedWorkout);
@@ -111,7 +111,7 @@ public class GymWorkoutControllerTests
     {
         // Arrange
         var mockRepo = Substitute.For<IWorkoutRepository>();
-        var existingWorkout = new Workout { WorkoutID = 1, WorkoutName = "Existing Workout" };
+        var existingWorkout = new Workouts { WorkoutID = 1, WorkoutName = "Existing Workout" };
         mockRepo.GetById(1).Returns(existingWorkout);
         var controller = new GymWorkoutController(mockRepo);
 
@@ -128,7 +128,7 @@ public class GymWorkoutControllerTests
     {
         // Arrange
         var mockRepo = Substitute.For<IWorkoutRepository>();
-        mockRepo.GetById(1).Returns((Workout)null);
+        mockRepo.GetById(1).Returns((Workouts)null);
         var controller = new GymWorkoutController(mockRepo);
 
         // Act

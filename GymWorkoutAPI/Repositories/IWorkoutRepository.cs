@@ -3,9 +3,9 @@
 namespace GymWorkoutAPI.Repositories;
 public interface IWorkoutRepository
 {
-    Workout GetById(int id);
-    IEnumerable<Workout> GetAll();
-    void Add(Workout workout);
+    Workouts GetById(int id);
+    IEnumerable<Workouts> GetAll();
+    void Add(Workouts workout);
     void Remove(int id);
-    void Update(Workout existingWorkout);
+    void Update(Workouts existingWorkout);
 }

@@ -1,20 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
-namespace GymWorkoutAPI.Data
+namespace GymWorkoutAPI.Data;
+public class SessionWorkout
 {
-    public class SessionWorkout
+    [Key]
+    public int SessionID { get; set; }
+    public List<int> WorkoutID { get; set; }
+}
+
+public class SessionWorkoutContext : DbContext
+{
+    public SessionWorkoutContext(DbContextOptions<SessionWorkoutContext> options)
+        : base(options)
     {
-        public int SessionID { get; set; }
-        public int WorkoutID { get; set; }
     }
 
-    public class SessionWorkoutContext : DbContext
-    {
-        public SessionWorkoutContext(DbContextOptions<SessionWorkoutContext> options)
-            : base(options)
-        {
-        }
-
-        public DbSet<SessionWorkout> SessionWorkout { get; set; }
-    }
+    public DbSet<SessionWorkout> SessionWorkout { get; set; }
 }

@@ -20,7 +20,7 @@
     "Parameters": [
       {
         "Name": "session",
-        "Type": "GymWorkoutAPI.Data.Session",
+        "Type": "GymWorkoutAPI.Data.GymSession",
         "IsRequired": true
       }
     ],
@@ -45,6 +45,40 @@
     "EndpointName": "Remove a Session"
   },
   {
+    "ContainingType": "GymWorkoutAPI.Controllers.GymSessionController",
+    "Method": "GetSessionWorkouts",
+    "RelativePath": "api/GymSession/{sessionId}/workouts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sessionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "Get Session Workout Details"
+  },
+  {
+    "ContainingType": "GymWorkoutAPI.Controllers.GymSessionController",
+    "Method": "AddWorkoutsToSession",
+    "RelativePath": "api/GymSession/add-workouts",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SessionWorkout",
+        "Type": "GymWorkoutAPI.Data.SessionWorkout",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "Add Workouts to Session"
+  },
+  {
     "ContainingType": "GymWorkoutAPI.Controllers.GymWorkoutController",
     "Method": "GetAllWorkouts",
     "RelativePath": "api/GymWorkout",
@@ -65,7 +99,7 @@
     "Parameters": [
       {
         "Name": "workout",
-        "Type": "GymWorkoutAPI.Data.Workout",
+        "Type": "GymWorkoutAPI.Data.Workouts",
         "IsRequired": true
       }
     ],
@@ -104,7 +138,7 @@
       },
       {
         "Name": "updatedWorkout",
-        "Type": "GymWorkoutAPI.Data.Workout",
+        "Type": "GymWorkoutAPI.Data.Workouts",
         "IsRequired": true
       }
     ],
@@ -131,8 +165,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "trainer",
-        "Type": "GymWorkoutAPI.Data.Trainer",
+        "Name": "trainerDTO",
+        "Type": "GymWorkoutAPI.DataTransferObjects.TrainerDTO",
         "IsRequired": true
       }
     ],
@@ -155,5 +189,67 @@
     ],
     "ReturnTypes": [],
     "EndpointName": "Remove a Trainer"
+  },
+  {
+    "ContainingType": "GymWorkoutAPI.Controllers.UserDetailsController",
+    "Method": "GetAllUserDetails",
+    "RelativePath": "api/UserDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "EndpointName": "Get All User Details"
+  },
+  {
+    "ContainingType": "GymWorkoutAPI.Controllers.UserDetailsController",
+    "Method": "CreateUserDetails",
+    "RelativePath": "api/UserDetails",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDetailsDTO",
+        "Type": "GymWorkoutAPI.DataTransferObjects.UserDetailsDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "Add User Details"
+  },
+  {
+    "ContainingType": "GymWorkoutAPI.Controllers.UserDetailsController",
+    "Method": "RemoveUserDetails",
+    "RelativePath": "api/UserDetails/{userName}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "Remove User Details"
+  },
+  {
+    "ContainingType": "GymWorkoutAPI.Controllers.UserDetailsController",
+    "Method": "GetUserDetails",
+    "RelativePath": "api/UserDetails/{userName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "Get User Details"
   }
 ]

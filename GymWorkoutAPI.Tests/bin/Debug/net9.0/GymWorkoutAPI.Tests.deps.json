@@ -22,6 +22,14 @@
           "GymWorkoutAPI.Tests.dll": {}
         }
       },
+      "Antlr/3.4.1.9004": {
+        "runtime": {
+          "lib/Antlr3.Runtime.dll": {
+            "assemblyVersion": "3.4.1.9004",
+            "fileVersion": "3.4.1.9004"
+          }
+        }
+      },
       "Azure.Core/1.38.0": {
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
@@ -1837,6 +1845,18 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "WebGrease/1.6.0": {
+        "dependencies": {
+          "Antlr": "3.4.1.9004",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/WebGrease.dll": {
+            "assemblyVersion": "1.6.5135.21930",
+            "fileVersion": "1.6.5135.21930"
+          }
+        }
+      },
       "xunit/2.5.3": {
         "dependencies": {
           "xunit.analyzers": "1.4.0",
@@ -1903,7 +1923,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.9",
           "NSubstitute": "5.3.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "9.0.4",
-          "Swashbuckle.AspNetCore.SwaggerUI": "9.0.4"
+          "Swashbuckle.AspNetCore.SwaggerUI": "9.0.4",
+          "WebGrease": "1.6.0"
         },
         "runtime": {
           "GymWorkoutAPI.dll": {
@@ -1919,6 +1940,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Antlr/3.4.1.9004": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-c1S+HBE+KYA5EBxtn25LEK02hHPH/tDQ6RviUTTCJpZIPoputtn8ArsQJy9lVJWZOnw37ufByO2Fmf1M8wpr8Q==",
+      "path": "antlr/3.4.1.9004",
+      "hashPath": "antlr.3.4.1.9004.nupkg.sha512"
     },
     "Azure.Core/1.38.0": {
       "type": "package",
@@ -3116,6 +3144,13 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "WebGrease/1.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1d29edoh4IZPLig82coowiPBS1ltxT97PwEIkOk0dHqtJwD9v5C7gPm6Ot1hKHT86otKm04oDQ00x5c+PyVyxw==",
+      "path": "webgrease/1.6.0",
+      "hashPath": "webgrease.1.6.0.nupkg.sha512"
     },
     "xunit/2.5.3": {
       "type": "package",
