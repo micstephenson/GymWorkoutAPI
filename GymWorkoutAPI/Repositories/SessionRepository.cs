@@ -3,28 +3,15 @@ using GymWorkoutAPI.DataTransferObjects;
 
 namespace GymWorkoutAPI.Repositories;
 
-public class SessionRepository : ISessionRepository
+public class SessionRepository(SessionContext sessionContext, TrainerContext trainerContext, SessionWorkoutContext sessionWorkoutContext, WorkoutContext workoutContext) : ISessionRepository
 {
-    private readonly SessionContext sessionContext;
-    private readonly SessionWorkoutContext sessionWorkoutContext;
-    private readonly TrainerContext trainerContext;
-    private readonly WorkoutContext workoutContext;
-
-    public SessionRepository(SessionContext sessionContext, TrainerContext trainerContext, SessionWorkoutContext sessionWorkoutContext, WorkoutContext workoutContext)
-    {
-        this.sessionContext = sessionContext;
-        this.sessionWorkoutContext = sessionWorkoutContext;
-        this.trainerContext = trainerContext;
-        this.workoutContext = workoutContext;
-    }
-
-    public void Add(GymSession session)
+    public void Add(GymSessions session)
     {
         sessionContext.GymSessions.Add(session);
         sessionContext.SaveChanges();
     }
 
-    public IEnumerable<GymSession> GetAll()
+    public IEnumerable<GymSessions> GetAll()
     {
         var gymsessions = sessionContext.GymSessions.ToList();
         return sessionContext.GymSessions.ToList();
@@ -55,7 +42,7 @@ public class SessionRepository : ISessionRepository
         return result;
     }
 
-    public GymSession? GetById(int id)
+    public GymSessions GetById(int id)
     {
         return sessionContext.GymSessions.FirstOrDefault(p => p.SessionID == id);
     }

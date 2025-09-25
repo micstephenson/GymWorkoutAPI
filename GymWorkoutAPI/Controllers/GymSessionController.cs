@@ -38,7 +38,7 @@ public class GymSessionController : ControllerBase
     }
 
     [HttpPost(Name = "Add a new Session")]
-    public IActionResult AddSession([FromBody] GymSession session)
+    public IActionResult AddSession([FromBody] GymSessions session)
     {
         if (session == null)
         {

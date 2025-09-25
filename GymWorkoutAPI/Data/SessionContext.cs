@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 namespace GymWorkoutAPI.Data;
 
-public class GymSession
+public class GymSessions
 {
     [Key]
     public int SessionID { get; set; }
@@ -18,5 +18,5 @@ public class SessionContext : DbContext
     {
     }
 
-    public DbSet<GymSession> GymSessions { get; set; }
+    public DbSet<GymSessions> GymSessions { get; set; }
 }
