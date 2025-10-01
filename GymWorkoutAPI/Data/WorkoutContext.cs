@@ -1,18 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
+﻿using GymWorkoutAPI.Data.Entity;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace GymWorkoutAPI.Data;
-public class Workouts
-{
-    [Key]
-    public int WorkoutID { get; set; }
-    public string? WorkoutName { get; set; }
-    public int? Reps { get; set; }
-    public int? WorkoutSets { get; set; }
-    public float? Duration { get; set; }
-    public string Difficulty { get; set; }
-}
-
 public class WorkoutContext : DbContext
 {
     public WorkoutContext(DbContextOptions<WorkoutContext> options)
@@ -21,4 +11,7 @@ public class WorkoutContext : DbContext
     }
 
     public DbSet<Workouts> Workouts { get; set; }
+    public DbSet<Trainers> Trainers { get; set; }
+    public DbSet<SessionWorkout> SessionWorkout { get; set; }
+    public DbSet<GymSessions> GymSessions { get; set; }
 }

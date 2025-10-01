@@ -1,23 +1,23 @@
-﻿using GymWorkoutAPI.Data;
+﻿using GymWorkoutAPI.Data.Entity;
 using GymWorkoutAPI.DataTransferObjects;
 
 namespace GymWorkoutAPI.Mappers
 {
     public static class TrainerMapper
     {
-        public static TrainerEntity ToEntity(this TrainerDTO dto)
+        public static Trainers ToEntity(this TrainerDto dto)
         {
-            return new TrainerEntity
-            {
+            return new Trainers
+            { 
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,
                 Email = dto.Email
             };
         }
 
-        public static TrainerDTO ToDTO(this TrainerEntity entity)
+        public static TrainerDto ToDTO(this Trainers entity)
         {
-            return new TrainerDTO
+            return new TrainerDto
             {
                 FirstName = entity.FirstName,
                 LastName = entity.LastName,

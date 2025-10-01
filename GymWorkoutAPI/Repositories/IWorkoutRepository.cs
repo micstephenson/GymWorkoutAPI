@@ -1,4 +1,4 @@
-﻿using GymWorkoutAPI.Data;
+﻿using GymWorkoutAPI.Data.Entity;
 
 namespace GymWorkoutAPI.Repositories;
 public interface IWorkoutRepository

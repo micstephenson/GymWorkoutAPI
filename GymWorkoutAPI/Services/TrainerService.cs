@@ -5,20 +5,19 @@ using GymWorkoutAPI.Repositories;
 namespace GymWorkoutAPI.Services;
 public class TrainerService(ITrainerRepository trainerRepository) : ITrainerService
 {
-    public void CreateTrainer(TrainerDTO trainerDTO)
+    public void CreateTrainer(TrainerDto trainerDTO)
     {
         var trainerEntity = trainerDTO.ToEntity();
         trainerRepository.Add(trainerEntity);
     }
 
-    // Fix: Implement the correct GetAllTrainers method as per ITrainerService interface
-    public IEnumerable<TrainerDTO> GetAllTrainers()
+    public IEnumerable<TrainerDto> GetAllTrainers()
     {
         var trainerEntities = trainerRepository.GetAll();
         return trainerEntities.Select(entity => entity.ToDTO());
     }
 
-    public TrainerDTO? GetTrainerById(int id)
+    public TrainerDto? GetTrainerById(int id)
     {
         var trainerEntity = trainerRepository.GetById(id);
         return trainerEntity?.ToDTO();

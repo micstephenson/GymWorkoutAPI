@@ -1,23 +1,18 @@
-﻿using GymWorkoutAPI.Data;
+﻿using GymWorkoutAPI.DataTransferObjects;
 using GymWorkoutAPI.Repositories;
+using GymWorkoutAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GymWorkoutAPI.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class GymSessionController : ControllerBase
+public class GymSessionController(IGymSessionService sessionService) : ControllerBase
 {
-    private readonly ISessionRepository sessionRepository;
-    public GymSessionController(ISessionRepository sessionRepository)
-    {
-        this.sessionRepository = sessionRepository;
-    }
-
     [HttpGet(Name = "Get all sessions")]
     public IActionResult GetAllSessions()
     {
-        var sessions = sessionRepository.GetAll();
+        var sessions = sessionService.GetAllSessions();
 
         if (sessions == null || !sessions.Any())
         {
@@ -29,7 +24,7 @@ public class GymSessionController : ControllerBase
     [HttpGet("{sessionId}/workouts", Name = "Get Session Workout Details")]
     public IActionResult GetSessionWorkouts(int sessionId)
     {
-        var session = sessionRepository.GetSessionWorkoutDetails(sessionId);
+        var session = sessionService.GetSessionWorkoutDetails(sessionId);
         if (session == null || !session.Any())
         {
             return NotFound($"Session with id {sessionId} not found");
@@ -38,32 +33,32 @@ public class GymSessionController : ControllerBase
     }
 
     [HttpPost(Name = "Add a new Session")]
-    public IActionResult AddSession([FromBody] GymSessions session)
+    public IActionResult AddSession([FromBody] GymSessionDto gymSessionDto)
     {
-        if (session == null)
+        if (gymSessionDto == null)
         {
             return BadRequest("Session data is null.");
         }
-        sessionRepository.Add(session);
-        return CreatedAtAction(nameof(AddSession), new { id = session.SessionID }, session);
+        sessionService.CreateSession(gymSessionDto);
+        return Created(string.Empty, gymSessionDto);
     }
 
     [HttpPost("add-workouts", Name = "Add Workouts to Session")]
-    public IActionResult AddWorkoutsToSession([FromBody] SessionWorkout SessionWorkout)
+    public IActionResult AddWorkoutsToSession([FromBody] SessionWorkoutDetailDto sessionWorkout)
     {
-        if (SessionWorkout == null || SessionWorkout.WorkoutID == null || !SessionWorkout.WorkoutID.Any())
+        if (sessionWorkout == null || sessionWorkout.WorkoutID == null)
         {
             return BadRequest("Invalid data.");
         }
 
-        var session = sessionRepository.GetById(SessionWorkout.SessionID);
+        var session = sessionService.GetSessionById(sessionWorkout.SessionID);
         if (session == null)
         {
-            return NotFound($"Session with id {SessionWorkout.SessionID} not found");
+            return NotFound($"Session with id {sessionWorkout.SessionID} not found");
         }
 
-        sessionRepository.AddWorkoutsToSession(SessionWorkout.SessionID, SessionWorkout.WorkoutID);
-        return Ok($"Workouts added to session {SessionWorkout.SessionID}");
+        sessionService.AddWorkoutsToSession(sessionWorkout.SessionID, new List<int> { sessionWorkout.WorkoutID });
+        return Ok($"Workouts added to session {sessionWorkout.SessionID}");
     }
 
 
@@ -92,13 +87,13 @@ public class GymSessionController : ControllerBase
     [HttpDelete("{id}", Name = "Remove a Session")]
     public IActionResult RemoveSession(int id)
     {
-        var session = sessionRepository.GetById(id);
+        var session = sessionService.GetSessionById(id);
         if (session == null)
         {
             return NotFound($"Session with id {id} not found");
         }
 
-        sessionRepository.Remove(id);
+        sessionService.RemoveSession(id);
         return NoContent();
 
     }

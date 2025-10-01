@@ -1,8 +1,5 @@
-﻿using GymWorkoutAPI.Data;
-using Microsoft.EntityFrameworkCore;
-
-namespace GymWorkoutAPI.DataTransferObjects;
-public class TrainerDTO
+﻿namespace GymWorkoutAPI.DataTransferObjects;
+public class TrainerDto
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }

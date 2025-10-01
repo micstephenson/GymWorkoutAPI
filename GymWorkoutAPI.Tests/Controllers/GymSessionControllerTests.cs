@@ -1,5 +1,5 @@
 ﻿using GymWorkoutAPI.Controllers;
-using GymWorkoutAPI.Data;
+using GymWorkoutAPI.Data.Entity;
 using GymWorkoutAPI.DataTransferObjects;
 using GymWorkoutAPI.Repositories;
 using GymWorkoutAPI.Services;
@@ -13,8 +13,8 @@ public class GymSessionControllerTests
     public void GetAllSessions_PositiveResponse()
     {
         // Arrange
-        var mockRepo = Substitute.For<ISessionRepository>();
-        mockRepo.GetAll().Returns(new List<GymSessions> { new GymSessions() });
+        var mockRepo = Substitute.For<IGymSessionService>();
+        mockRepo.GetAllSessions().Returns(new List<GymSessionDto> { new GymSessionDto() });
         var controller = new GymSessionController(mockRepo);
 
         // Act
@@ -22,15 +22,15 @@ public class GymSessionControllerTests
 
         // Assert
         var okResult = Assert.IsType<OkObjectResult>(result);
-        var sessions = Assert.IsAssignableFrom<IEnumerable<GymSessions>>(okResult.Value);
+        var sessions = Assert.IsAssignableFrom<IEnumerable<GymSessionDto>>(okResult.Value);
     }
 
     [Fact]
     public void GetAllSessions_NegativeResponse()
     {
         // Arrange
-        var mockRepo = Substitute.For<ISessionRepository>();
-        mockRepo.GetAll().Returns((IEnumerable<GymSessions>)null);
+        var mockRepo = Substitute.For<IGymSessionService>();
+        mockRepo.GetAllSessions().Returns((IEnumerable<GymSessionDto>)null);
         var controller = new GymSessionController(mockRepo);
 
         // Act
@@ -45,15 +45,15 @@ public class GymSessionControllerTests
     public void AddSession_PositiveResponse()
     {
         // Arrange
-        var mockRepo = Substitute.For<ISessionRepository>();
+        var mockRepo = Substitute.For<IGymSessionService>();
         var controller = new GymSessionController(mockRepo);
-        var newSession = new GymSessions { SessionID = 1, SessionDate = DateTime.Now, TrainerID = 1, OverallDuration = 60 };
+        var newSession = new GymSessionDto {SessionDate = DateTime.Now, TrainerID = 1, OverallDuration = 60 };
 
         // Act
         var result = controller.AddSession(newSession);
 
         // Assert
-        var createdAtActionResult = Assert.IsType<CreatedAtActionResult>(result);
+        var createdAtActionResult = Assert.IsType<CreatedResult>(result);
         Assert.Equal(newSession, createdAtActionResult.Value);
     }
 
@@ -61,7 +61,7 @@ public class GymSessionControllerTests
     public void AddSession_NegativeResponse()
     {
         // Arrange
-        var mockRepo = Substitute.For<ISessionRepository>();
+        var mockRepo = Substitute.For<IGymSessionService>();
         var controller = new GymSessionController(mockRepo);
         // Act
         var result = controller.AddSession(null);
@@ -74,7 +74,7 @@ public class GymSessionControllerTests
     public void GetSessionWorkouts_PositiveResponse()
     {
         // Arrange
-        var mockRepo = Substitute.For<ISessionRepository>();
+        var mockRepo = Substitute.For<IGymSessionService>();
         mockRepo.GetSessionWorkoutDetails(1).Returns(new List<SessionWorkoutDetailDto> { new SessionWorkoutDetailDto() });
         var controller = new GymSessionController(mockRepo);
         // Act
@@ -88,7 +88,7 @@ public class GymSessionControllerTests
     public void GetSessionWorkouts_NegativeResponse()
     {
         // Arrange
-        var mockRepo = Substitute.For<ISessionRepository>();
+        var mockRepo = Substitute.For<IGymSessionService>();
         mockRepo.GetSessionWorkoutDetails(1).Returns((IEnumerable<SessionWorkoutDetailDto>)null);
         var controller = new GymSessionController(mockRepo);
         // Act
@@ -102,22 +102,22 @@ public class GymSessionControllerTests
     public void AddWorkoutsToSession_PositiveResponse()
     {
         // Arrange
-        var mockRepo = Substitute.For<ISessionRepository>();
-        mockRepo.GetById(1).Returns(new GymSessions { SessionID = 1, SessionDate = DateTime.Now, TrainerID = 1, OverallDuration = 60 });
+        var mockRepo = Substitute.For<IGymSessionService>();
+        mockRepo.GetSessionById(1).Returns(new GymSessionDto { SessionDate = DateTime.Now, TrainerID = 1, OverallDuration = 60 });
         var controller = new GymSessionController(mockRepo);
-        var sessionWorkout = new SessionWorkout { SessionID = 1, WorkoutID = new List<int> { 1, 2 } };
+        var newSession = new SessionWorkoutDetailDto { SessionID = 1, WorkoutID = 1 };
         // Act
-        var result = controller.AddWorkoutsToSession(sessionWorkout);
+        var result = controller.AddWorkoutsToSession(newSession);
         // Assert
         var okResult = Assert.IsType<OkObjectResult>(result);
-        Assert.Equal("Workouts added to session successfully.", okResult.Value);
+        Assert.Equal($"Workouts added to session {newSession.WorkoutID}", okResult.Value);
     }
 
     [Fact]
     public void AddWorkoutsToSession_NegativeResponse_InvalidData()
     {
         // Arrange
-        var mockRepo = Substitute.For<ISessionRepository>();
+        var mockRepo = Substitute.For<IGymSessionService>();
         var controller = new GymSessionController(mockRepo);
         // Act
         var result = controller.AddWorkoutsToSession(null);
@@ -130,13 +130,27 @@ public class GymSessionControllerTests
     public void DeleteSession_PositiveResponse()
     {
         // Arrange
-        var mockRepo = Substitute.For<ISessionRepository>();
-        mockRepo.GetById(1).Returns(new GymSessions { SessionID = 1, SessionDate = DateTime.Now, TrainerID = 1, OverallDuration = 60 });
+        var mockRepo = Substitute.For<IGymSessionService>();
+        mockRepo.GetSessionById(1).Returns(new GymSessionDto { SessionDate = DateTime.Now, TrainerID = 1, OverallDuration = 60 });
         var controller = new GymSessionController(mockRepo);
         // Act
         var result = controller.RemoveSession(1);
         // Assert
-        var okResult = Assert.IsType<OkObjectResult>(result);
-        Assert.Equal("Session deleted successfully.", okResult.Value);
+        var noContentResult = Assert.IsType<NoContentResult>(result);
+        Assert.Equal(204, noContentResult.StatusCode);
+    }
+
+    [Fact]
+    public void DeleteSession_NegativeResponse()
+    {
+        // Arrange
+        var mockRepo = Substitute.For<IGymSessionService>();
+        mockRepo.GetSessionById(1).Returns((GymSessionDto)null);
+        var controller = new GymSessionController(mockRepo);
+        // Act
+        var result = controller.RemoveSession(1);
+        // Assert
+        var notFoundResult = Assert.IsType<NotFoundObjectResult>(result);
+        Assert.Equal("Session with id 1 not found", notFoundResult.Value);
     }
 }

@@ -1,33 +1,34 @@
 ﻿using GymWorkoutAPI.Data;
+using GymWorkoutAPI.Data.Entity;
 
 namespace GymWorkoutAPI.Repositories;
 
-public class TrainerRepository(TrainerContext trainerContext) : ITrainerRepository
+public class TrainerRepository(WorkoutContext workoutContext) : ITrainerRepository
 {
 
-    public void Add(TrainerEntity trainer)
+    public void Add(Trainers trainer)
     {
-        trainerContext.Trainers.Add(trainer);
-        trainerContext.SaveChanges();
+        workoutContext.Trainers.Add(trainer);
+        workoutContext.SaveChanges();
     }
 
-    public IEnumerable<TrainerEntity> GetAll()
+    public IEnumerable<Trainers> GetAll()
     {
-        return trainerContext.Trainers.ToList();
+        return workoutContext.Trainers.ToList();
     }
 
-    public TrainerEntity? GetById(int id)
+    public Trainers? GetById(int id)
     {
-        return trainerContext.Trainers.FirstOrDefault(p => p.TrainerID == id);
+        return workoutContext.Trainers.FirstOrDefault(p => p.TrainerID == id);
     }
 
     public void Remove(int id)
     {
-        var trainer = trainerContext.Trainers.FirstOrDefault(p => p.TrainerID == id);
+        var trainer = workoutContext.Trainers.FirstOrDefault(p => p.TrainerID == id);
         if (trainer != null)
         {
-            trainerContext.Trainers.Remove(trainer);
-            trainerContext.SaveChanges();
+            workoutContext.Trainers.Remove(trainer);
+            workoutContext.SaveChanges();
         }
     }
 }

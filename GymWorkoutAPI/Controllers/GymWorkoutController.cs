@@ -1,24 +1,18 @@
-﻿using GymWorkoutAPI.Data;
+﻿using GymWorkoutAPI.DataTransferObjects;
 using GymWorkoutAPI.Exceptions;
-using GymWorkoutAPI.Repositories;
+using GymWorkoutAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GymWorkoutAPI.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class GymWorkoutController : ControllerBase
+public class GymWorkoutController(IWorkoutService workoutService) : ControllerBase
 {
-    private readonly IWorkoutRepository workoutRepository;
-    public GymWorkoutController(IWorkoutRepository workoutRepository)
-    {
-        this.workoutRepository = workoutRepository;
-    }
-
     [HttpGet(Name = "Get all workouts")]
     public IActionResult GetAllWorkouts()
     {
-        var workouts = workoutRepository.GetAll();
+        var workouts = workoutService.GetAllWorkouts();
         
         if (workouts == null || !workouts.Any())
         {
@@ -28,26 +22,25 @@ public class GymWorkoutController : ControllerBase
     }
 
     [HttpPost(Name = "Add a new Workout")]
-    public IActionResult AddWorkout([FromBody] Workouts workout)
+    public IActionResult AddWorkout([FromBody] WorkoutDto workout)
     {
         if (workout == null)
         {
             return BadRequest("Workout data is null.");
         }
-        workoutRepository.Add(workout);
-        return CreatedAtAction(nameof(AddWorkout), new { id = workout.WorkoutID }, workout);
+        workoutService.CreateWorkout(workout);
+        return Ok("Workout added successfully.");
     }
 
 
     [HttpPut("update", Name = "Update a Workout")]
-    public IActionResult UpdateWorkout(int id, [FromBody] Workouts updatedWorkout)
+    public IActionResult UpdateWorkout(int id, [FromBody] WorkoutDto updatedWorkout)
     {
-        if (updatedWorkout == null || updatedWorkout.WorkoutID != id)
-        {
+        if (updatedWorkout == null)
             return BadRequest("Invalid workout data");
-        }
 
-        var existingWorkout = workoutRepository.GetById(id);
+
+        var existingWorkout = workoutService.GetWorkoutById(id);
         if (existingWorkout == null)
         {
             throw new WorkoutNotFoundException(id);
@@ -55,22 +48,24 @@ public class GymWorkoutController : ControllerBase
 
         existingWorkout.WorkoutName = updatedWorkout.WorkoutName;
         existingWorkout.Duration = updatedWorkout.Duration;
+        existingWorkout.WorkoutSets = updatedWorkout.WorkoutSets;
+        existingWorkout.Duration = updatedWorkout.Duration;
+        existingWorkout.Difficulty = updatedWorkout.Difficulty;
 
-        workoutRepository.Update(existingWorkout);
+        workoutService.UpdateWorkout(existingWorkout);
         return NoContent();
     }
-
 
     [HttpDelete("{id}", Name = "Remove a Workout")]
     public IActionResult RemoveWorkout(int id)
     {
-        var workout = workoutRepository.GetById(id);
+        var workout = workoutService.GetWorkoutById(id);
         if (workout == null)
         {
             return NotFound($"Workout with id {id} not found");
         }
 
-        workoutRepository.Remove(id);
+        workoutService.RemoveWorkout(id);
         return NoContent();
 
     }

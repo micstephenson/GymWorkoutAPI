@@ -13,15 +13,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IWorkoutRepository, WorkoutRepository>();
 builder.Services.AddScoped<ITrainerRepository, TrainerRepository>();
-builder.Services.AddScoped<ISessionRepository, SessionRepository>();
+builder.Services.AddScoped<IGymSessionRepository, GymSessionRepository>();
 builder.Services.AddScoped<IUserDetailsService, UserDetailsService>();
+builder.Services.AddScoped<IGymSessionService, GymSessionService>();
+builder.Services.AddScoped<ITrainerService, TrainerService>();
+builder.Services.AddScoped<IWorkoutService, WorkoutService>();
 builder.Services.AddDbContext<WorkoutContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddDbContext<TrainerContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddDbContext<SessionContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddDbContext<SessionWorkoutContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 

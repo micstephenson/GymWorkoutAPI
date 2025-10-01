@@ -1,13 +1,13 @@
-﻿using GymWorkoutAPI.Data;
+﻿using GymWorkoutAPI.Data.Entity;
 using GymWorkoutAPI.DataTransferObjects;
 
 namespace GymWorkoutAPI.Repositories;
-public interface ISessionRepository
+public interface IGymSessionRepository
 {
-    GymSessions GetById(int id);
+    void Add(GymSessions session);
     IEnumerable<GymSessions> GetAll();
     IEnumerable<SessionWorkoutDetailDto> GetSessionWorkoutDetails(int sessionId);
+    GymSessions GetById(int id);
     void AddWorkoutsToSession(int sessionId, IEnumerable<int> workoutIds);
-    void Add(GymSessions session);
     void Remove(int id);
 }

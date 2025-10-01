@@ -21,7 +21,7 @@ public class PersonalTrainerController(ITrainerService trainerService) : Control
     }
 
     [HttpPost(Name = "Add a new Trainer")]
-    public IActionResult AddTrainer([FromBody] TrainerDTO trainerDTO)
+    public IActionResult AddTrainer([FromBody] TrainerDto trainerDTO)
     {
         if (trainerDTO == null)
         {

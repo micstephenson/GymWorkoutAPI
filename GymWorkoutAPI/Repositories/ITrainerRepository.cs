@@ -1,10 +1,10 @@
-﻿using GymWorkoutAPI.Data;
+﻿using GymWorkoutAPI.Data.Entity;
 
 namespace GymWorkoutAPI.Repositories;
 public interface ITrainerRepository
 {
-    TrainerEntity GetById(int id);
-    IEnumerable<TrainerEntity> GetAll();
-    void Add(TrainerEntity trainer);
+    Trainers GetById(int id);
+    IEnumerable<Trainers> GetAll();
+    void Add(Trainers trainer);
     void Remove(int id);
 }
