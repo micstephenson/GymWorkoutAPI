@@ -57,6 +57,7 @@ public class GymSessionRepository(WorkoutContext workoutContext) : IGymSessionRe
             };
             workoutContext.Add(sessionWorkout);
         }
+        workoutContext.SaveChanges();
     }
 
     public void Remove(int id)

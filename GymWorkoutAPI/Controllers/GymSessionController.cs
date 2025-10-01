@@ -44,9 +44,9 @@ public class GymSessionController(IGymSessionService sessionService) : Controlle
     }
 
     [HttpPost("{sessionId}", Name = "Add Workouts to Session")]
-    public IActionResult AddWorkoutsToSession([FromBody] List<int> workoutsToAdd, [FromRoute] int sessionId)
+    public IActionResult AddWorkoutsToSession([FromBody] WorkoutsToAdd workoutsToAdd, [FromRoute] int sessionId)
     {
-        if (workoutsToAdd == null || workoutsToAdd.Count() < 0)
+        if (workoutsToAdd == null || workoutsToAdd.WorkoutIDs.Count() < 0)
         {
             return BadRequest("Invalid data.");
         }
@@ -57,7 +57,7 @@ public class GymSessionController(IGymSessionService sessionService) : Controlle
             return NotFound($"Session with id {sessionId} not found");
         }
 
-        sessionService.AddWorkoutsToSession(sessionId, workoutsToAdd);
+        sessionService.AddWorkoutsToSession(sessionId, workoutsToAdd.WorkoutIDs);
         return Ok($"Workouts added to session {sessionId}");
     }
 
