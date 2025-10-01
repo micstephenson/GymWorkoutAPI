@@ -11,6 +11,6 @@ public class SessionWorkoutDetailDto
     public string WorkoutName { get; set; }
     public int WorkoutSets { get; set; }
     public int Reps { get; set; }
-    public float SessionDuration { get; set; }
+    public double SessionDuration { get; set; }
     
 }

@@ -8,7 +8,8 @@ public class WorkoutService(IWorkoutRepository workoutRepository) : IWorkoutServ
 {
     public IEnumerable<WorkoutDto> GetAllWorkouts()
     {
-        return (IEnumerable<WorkoutDto>)workoutRepository.GetAll();
+        var workoutEntity = workoutRepository.GetAll();
+        return workoutEntity.Select(entity => entity.ToDTO());
     }
 
     public WorkoutDto GetWorkoutById(int id)

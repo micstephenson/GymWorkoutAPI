@@ -14,12 +14,7 @@ public class GymSessionService(IGymSessionRepository sessionRepository) : IGymSe
     
     public IEnumerable<GymSessionDto> GetAllSessions()
     {
-        if (sessionRepository == null)
-        {
-            throw new ArgumentNullException(nameof(sessionRepository), "Session repository is not initialized.");
-        }
         var sessions = sessionRepository.GetAll();
-
         return sessions.Select(entity => entity.ToDTO());
     }
     public GymSessionDto GetSessionById(int id)

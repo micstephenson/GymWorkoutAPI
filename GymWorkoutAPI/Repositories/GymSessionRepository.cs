@@ -14,7 +14,6 @@ public class GymSessionRepository(WorkoutContext workoutContext) : IGymSessionRe
 
     public IEnumerable<GymSessions> GetAll()
     {
-        var gymsessions = workoutContext.GymSessions.ToList();
         return workoutContext.GymSessions.ToList();
     }
 

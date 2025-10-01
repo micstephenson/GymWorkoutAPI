@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace GymWorkoutAPI.Data.Entity;
-
 public class Trainers
 {
     [Key]
