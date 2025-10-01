@@ -22,8 +22,7 @@ public class GymSessionRepository(WorkoutContext workoutContext) : IGymSessionRe
         var result = (from gs in workoutContext.GymSessions
                       join t in workoutContext.Trainers on gs.TrainerID equals t.TrainerID
                       join sw in workoutContext.SessionWorkout on gs.SessionID equals sw.SessionID
-                      from workoutId in sw.WorkoutID
-                      join w in workoutContext.Workouts on workoutId equals w.WorkoutID
+                      join w in workoutContext.Workouts on sw.WorkoutID equals w.WorkoutID
                       where gs.SessionID == sessionId
                       select new SessionWorkoutDetailDto
                       {
@@ -54,7 +53,7 @@ public class GymSessionRepository(WorkoutContext workoutContext) : IGymSessionRe
             var sessionWorkout = new SessionWorkout
             {
                 SessionID = sessionId,
-                WorkoutID = new List<int> { workoutID }
+                WorkoutID = workoutID
             };
             workoutContext.Add(sessionWorkout);
         }

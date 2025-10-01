@@ -5,5 +5,5 @@ public class SessionWorkout
 {
     [Key]
     public int SessionID { get; set; }
-    public List<int> WorkoutID { get; set; }
+    public int WorkoutID { get; set; }
 }

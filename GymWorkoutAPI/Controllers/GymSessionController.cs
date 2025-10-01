@@ -43,22 +43,22 @@ public class GymSessionController(IGymSessionService sessionService) : Controlle
         return Created(string.Empty, gymSessionDto);
     }
 
-    [HttpPost("add-workouts", Name = "Add Workouts to Session")]
-    public IActionResult AddWorkoutsToSession([FromBody] SessionWorkoutDetailDto sessionWorkout)
+    [HttpPost("{sessionId}", Name = "Add Workouts to Session")]
+    public IActionResult AddWorkoutsToSession([FromBody] List<int> workoutsToAdd, [FromRoute] int sessionId)
     {
-        if (sessionWorkout == null || sessionWorkout.WorkoutID == null)
+        if (workoutsToAdd == null || workoutsToAdd.Count() < 0)
         {
             return BadRequest("Invalid data.");
         }
 
-        var session = sessionService.GetSessionById(sessionWorkout.SessionID);
+        var session = sessionService.GetSessionById(sessionId);
         if (session == null)
         {
-            return NotFound($"Session with id {sessionWorkout.SessionID} not found");
+            return NotFound($"Session with id {sessionId} not found");
         }
 
-        sessionService.AddWorkoutsToSession(sessionWorkout.SessionID, new List<int> { sessionWorkout.WorkoutID });
-        return Ok($"Workouts added to session {sessionWorkout.SessionID}");
+        sessionService.AddWorkoutsToSession(sessionId, workoutsToAdd);
+        return Ok($"Workouts added to session {sessionId}");
     }
 
 
