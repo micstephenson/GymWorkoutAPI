@@ -1,5 +1,4 @@
 # GYM WORKOUT API
-===================
 This API provides endpoints to manage gym workouts, personal trainer details, and session details including creating, retrieving, updating, and deleting records.
 
 ## Description
