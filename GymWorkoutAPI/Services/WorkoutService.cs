@@ -24,10 +24,10 @@ public class WorkoutService(IWorkoutRepository workoutRepository) : IWorkoutServ
         workoutRepository.Add(workoutEntity);
     }
 
-    public void UpdateWorkout(WorkoutDto existingWorkout)
+    public void UpdateWorkout(int id, WorkoutDto existingWorkout)
     {
         var workoutEntity = existingWorkout.ToEntity();
-        workoutRepository.Update(workoutEntity);
+        workoutRepository.Update(id, workoutEntity);
     }
 
     public void RemoveWorkout(int id)

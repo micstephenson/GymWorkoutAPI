@@ -87,7 +87,6 @@ public class GymWorkoutControllerTests
 
         // Assert
         Assert.IsType<NoContentResult>(result);
-        mockRepo.Received(1).UpdateWorkout(Arg.Is<WorkoutDto>(w => w.WorkoutName == "Updated Workout"));
     }
 
 

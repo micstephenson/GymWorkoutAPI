@@ -1,5 +1,6 @@
 ﻿using GymWorkoutAPI.Data;
 using GymWorkoutAPI.Data.Entity;
+using GymWorkoutAPI.Services;
 
 namespace GymWorkoutAPI.Repositories;
 
@@ -12,8 +13,16 @@ public class WorkoutRepository(WorkoutContext workoutContext) : IWorkoutReposito
         workoutContext.SaveChanges();
     }
 
-    public void Update(Workouts existingWorkout)
+    public void Update(int id, Workouts updatedWorkout)
     {
+        var existingWorkout = GetById(id);
+
+        existingWorkout.WorkoutName = updatedWorkout.WorkoutName;
+        existingWorkout.Duration = updatedWorkout.Duration;
+        existingWorkout.WorkoutSets = updatedWorkout.WorkoutSets;
+        existingWorkout.Duration = updatedWorkout.Duration;
+        existingWorkout.Difficulty = updatedWorkout.Difficulty;
+
         workoutContext.Workouts.Update(existingWorkout);
         workoutContext.SaveChanges();
     }
@@ -28,7 +37,7 @@ public class WorkoutRepository(WorkoutContext workoutContext) : IWorkoutReposito
     {
         return workoutContext.Workouts.FirstOrDefault(p => p.WorkoutID == id);
     }
-
+    
     public void Remove(int id)
     {
         var workout = workoutContext.Workouts.FirstOrDefault(p => p.WorkoutID == id);

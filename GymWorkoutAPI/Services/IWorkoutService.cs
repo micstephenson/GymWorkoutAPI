@@ -8,6 +8,6 @@ namespace GymWorkoutAPI.Services
         public IEnumerable<WorkoutDto> GetAllWorkouts();
         public WorkoutDto? GetWorkoutById(int id);
         public void RemoveWorkout(int id);
-        public void UpdateWorkout(WorkoutDto existingWorkout);
+        public void UpdateWorkout(int id, WorkoutDto existingWorkout);
     }
 }

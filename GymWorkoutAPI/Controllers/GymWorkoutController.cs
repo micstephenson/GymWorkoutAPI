@@ -38,21 +38,9 @@ public class GymWorkoutController(IWorkoutService workoutService) : ControllerBa
     {
         if (updatedWorkout == null)
             return BadRequest("Invalid workout data");
+     
 
-
-        var existingWorkout = workoutService.GetWorkoutById(id);
-        if (existingWorkout == null)
-        {
-            throw new WorkoutNotFoundException(id);
-        }
-
-        existingWorkout.WorkoutName = updatedWorkout.WorkoutName;
-        existingWorkout.Duration = updatedWorkout.Duration;
-        existingWorkout.WorkoutSets = updatedWorkout.WorkoutSets;
-        existingWorkout.Duration = updatedWorkout.Duration;
-        existingWorkout.Difficulty = updatedWorkout.Difficulty;
-
-        workoutService.UpdateWorkout(existingWorkout);
+        workoutService.UpdateWorkout(id, updatedWorkout);
         return NoContent();
     }
 

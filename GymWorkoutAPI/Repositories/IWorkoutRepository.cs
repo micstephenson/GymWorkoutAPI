@@ -7,5 +7,5 @@ public interface IWorkoutRepository
     IEnumerable<Workouts> GetAll();
     void Add(Workouts workout);
     void Remove(int id);
-    void Update(Workouts existingWorkout);
+    void Update(int id, Workouts existingWorkout);
 }
